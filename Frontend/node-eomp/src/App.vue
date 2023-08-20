@@ -1,30 +1,48 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Navbar/>
   <router-view/>
+  <Footer/>
 </template>
 
+<script>
+
+  import Navbar from './components/Navbar.vue';
+  import Footer from './components/Footer.vue';
+
+  export default {
+    components: {
+      Navbar,
+      Footer
+    }
+  }
+
+</script>
+
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Bebas Neue', sans-serif;  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+:root{
+  --primary-color: #284B63;
+  --secondary-color: #A2A2A2;
+  --dark: #353535;
+  --light: #FFFFFF;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+::-webkit-scrollbar{
+  display: none;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+
+main{
+  margin: 0 1.25rem;
 }
+
+
 </style>
