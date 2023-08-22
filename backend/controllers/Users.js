@@ -28,10 +28,7 @@ export const showUserById = (req, res) => {
 export const  createUser = (req, res) => {
     const data = req.body;
     data.userPass =  bcrypt.hashSync(data.userPass, 10);
-    const user = {
-        emailAdd: data.userAdd,
-        userPass: data.userPass
-    }
+ 
     insertUser(data, (err, results) => {
         if (err){
             res.send(err);
