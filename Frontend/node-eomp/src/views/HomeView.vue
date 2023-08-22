@@ -2,13 +2,13 @@
   <main class="my-12">
     <header class="flex">
       <div class=" flex-[5] flex flex-col gap-5">
-        <h1 class="text-5xl w-fit">
+        <h1 class="text-5xl w-fit lg:text-7xl">
           Timeless Timepieces
         </h1>
-        <p class=" w-[80%] text-primary">
+        <p class=" w-[80%] text-primary lg:text-2xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas reiciendis dignissimos autem quam nesciunt alias? Unde magnam tempora perferendis fugiat?
         </p>
-        <div class="flex gap-5">
+        <div class="flex gap-5 lg:text-2xl">
           <button class=" bg-primary text-light px-3 py-1 rounded-sm">
             Shop Now
           </button>
@@ -22,8 +22,8 @@
       </div>
     </header>
 
-    <section class="my-24">
-      <h2 class="text-center text-4xl">
+    <section class="my-16">
+      <h2 class="text-center text-4xl lg:text-6xl">
         Featured Piece
       </h2>
       <FeaturedProduct/>
@@ -36,7 +36,7 @@
       <BrandContainer/>
     </section>
 
-    <section class="mt-24">
+    <section class="my-16">
       <Policy/>
     </section>
   </main>

@@ -1,9 +1,9 @@
 <template>
-  <nav class="flex justify-between mx-5 py-5 items-end">
+  <nav class="flex justify-between mx-5 py-5 items-end lg:mx-52">
     <div class="logo">
       <img src="https://img.logoipsum.com/218.svg" alt="logo" />
     </div>
-    <ul class="links flex text-lg gap-3 items-center">
+    <ul class="links flex text-lg gap-3 items-center lg:text-2xl">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/products">Products</router-link></li>
       <li><router-link to="/about">About</router-link></li>
@@ -14,7 +14,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
 
 <style scoped>

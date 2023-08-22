@@ -1,5 +1,5 @@
 <template>
-    <footer class="p-5 bg-dark  flex flex-col gap-5">
+    <footer class="p-5 bg-dark  flex flex-col gap-5 lg:px-52">
         <div class=" text-light flex justify-between">
             <p>
                 copyright &copy; 2023

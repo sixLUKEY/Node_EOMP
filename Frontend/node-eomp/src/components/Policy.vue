@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full flex bg-primary text-light policy">
-        <div class="p-5 flex flex-col gap-3 flex-[5]">
+    <div class="w-full flex bg-primary text-light policy relative">
+        <div class="p-5 flex flex-col gap-3 z-20 w-full h-full">
             <h3 class=" text-3xl">
                 Our buyer protection policy
             </h3>
@@ -15,9 +15,7 @@
                 Learn more about security and conditions
             </button>
         </div>
-        <div >
             <img src="https://i.postimg.cc/8z9VsX8V/glenn-carstens-peters-npx-XWg-Q33-ZQ-unsplash-1.png" alt="glen">
-        </div>
     </div>
 </template>
 
@@ -31,14 +29,20 @@
     
 
     img {
-        display: none;
         max-width: 100%;
-        object-fit: cover;
+        /* max-height: 100%; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
     }
 
     .policy{
-        background-image: url(https://i.postimg.cc/8z9VsX8V/glenn-carstens-peters-npx-XWg-Q33-ZQ-unsplash-1.png);
-        
+        overflow: hidden;
     }
+
+   .policy div{
+    background-color: #000000b8;
+   }
 
 </style>

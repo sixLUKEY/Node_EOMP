@@ -26,6 +26,7 @@
   font-family: 'Bebas Neue', sans-serif;  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 :root{
@@ -44,5 +45,10 @@ main{
   margin: 0 1.25rem;
 }
 
+@media screen and ( min-width: 1024px ) {
+  main{
+    margin: 0 13rem;
+  }
+}
 
 </style>

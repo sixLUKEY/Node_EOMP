@@ -1,13 +1,13 @@
 <template>
     <div class="w-full featured my-6 py-6 flex gap-5">
         <div class="flex-[3]">
-            <h3 class="text-3xl">
+            <h3 class="text-3xl lg:text-6xl">
                 Cartier Rotonde de cartier
             </h3>
-            <h4 class=" text-xl text-primary">
+            <h4 class=" text-xl text-primary lg:text-4xl">
                 Rose Gold Flying Tourbillon watch
             </h4>
-            <div class="flex text-secondary">
+            <div class="flex text-secondary lg:text-2xl">
                 <p>
                     original box 
                 </p>
@@ -19,10 +19,10 @@
                 </p>
             </div>
             <div class="flex justify-between my-5 h-fit items-center">
-                <p class=" text-3xl price">
+                <p class=" text-3xl price lg:text-5xl">
                     R 1 133 161
                     <br>
-                    <span class="text-lg text-secondary">
+                    <span class="text-lg text-secondary lg:text-2xl">
                         + R 2422 insured shipping
                     </span>
                 </p>
