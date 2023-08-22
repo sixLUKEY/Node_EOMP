@@ -3,7 +3,7 @@ const {sign} = pkg;
 import { config } from "dotenv";
 config();
 
-export const createToken =(user)=> {
+export function createToken (user){
   return sign(
     {
       emailAdd: user.emailAdd,

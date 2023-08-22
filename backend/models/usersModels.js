@@ -1,5 +1,4 @@
 import db from "../config/database.js";
-import { createToken } from "../middleware/authenticateUser.js";
 
 // Get All Products
 export const getUsers = (result) => {
@@ -18,10 +17,6 @@ export const getUsers = (result) => {
 
 // Get Single Product
 export const getUserById = (id, result) => {
-    const user = {
-      emailAdd: data.userAdd,
-      userPass: data.userPass,
-    };
   db.query(
     "SELECT firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile FROM usersTable WHERE userID = ?",
     [id],
@@ -30,23 +25,15 @@ export const getUserById = (id, result) => {
         console.log(err);
         result(err, null);
       } else {
-        result(null, results[0]);
-
-        res.json(results);
-        let token = createToken(user);
-        res.json({
-          status: res.statusCode,
-          token,
-          msg: "New user created successfully",
-        });
-      }next();
+        result(null, results);
+      }
     }
   );
 };
 
 // Insert Product to Database
 export const insertUser = (data, result) => {
-  db.query("INSERT INTO usersTable SET ?;", [data], (err, results) => {
+  db.query("INSERT INTO usersTable SET ?", [data], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
