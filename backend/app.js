@@ -2,6 +2,7 @@ import express from "express";
 import path from "path"
 import { config } from "dotenv";
 config();
+import { errorHandling } from "./middleware/errorHandling.js"
 // import cors
 import cors from "cors";
  
@@ -34,8 +35,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
   
 // use router
 app.use(Router);
+app.use(errorHandling);
 
-app.get('^/$|/Node_EOMP', (req, res)=>{
+app.get('/', (req, res)=>{
     res.status(200);
     res.sendFile(path.resolve("./static/html/index.html"));
 });
