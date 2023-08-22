@@ -1,5 +1,7 @@
 import { getUsers, getUserById, insertUser, updateUserById, deleteUserById } from "../models/usersModels.js";
-import bcrypt from "bcrypt" 
+import bcrypt from "bcrypt"; 
+
+
 // Get All Products
 export const showUsers = (req, res) => {
     getUsers((err, results) => {
@@ -26,6 +28,10 @@ export const showUserById = (req, res) => {
 export const  createUser = (req, res) => {
     const data = req.body;
     data.userPass =  bcrypt.hashSync(data.userPass, 10);
+    const user = {
+        emailAdd: data.userAdd,
+        userPass: data.userPass
+    }
     insertUser(data, (err, results) => {
         if (err){
             res.send(err);
