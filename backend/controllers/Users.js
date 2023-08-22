@@ -22,7 +22,7 @@ export const showUserById = (req, res) => {
     });
 }
   
-// Create New Product
+// Create New User
 export const  createUser = (req, res) => {
     const data = req.body;
     data.userPass =  bcrypt.hashSync(data.userPass, 10);
@@ -38,6 +38,7 @@ export const  createUser = (req, res) => {
 // Update Product
 export const updateUser = (req, res) => {
     const data  = req.body;
+    data.userPass =  bcrypt.hashSync(data.userPass, 10);
     const id    = req.params.id;
     updateUserById(data, id, (err, results) => {
         if (err){
