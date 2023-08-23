@@ -18,7 +18,7 @@ export const getProducts = (result) => {
 // Get Single Product
 export const getProductById = (id, result) => {
   db.query(
-    "SELECT prodName, prodDesc quantity, amount, Category, prodYear, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products WHERE prodID = ?",
+    "SELECT prodName, prodDesc, quantity, amount, Category, prodYear, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products WHERE prodID = ?",
     [id],
     (err, results) => {
       if (err) {
