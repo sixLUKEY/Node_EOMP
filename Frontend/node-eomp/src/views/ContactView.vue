@@ -1,7 +1,7 @@
 <template>
-  <main class="my-auto flex flex-col">
-    <Form/>
-    <FAQ/>
+  <main class="my-auto flex flex-col lg:flex-row lg:gap-16">
+    <Form class="lg:flex-1"/>
+    <FAQ class="lg:flex-1"/>
   </main>
 </template>
 

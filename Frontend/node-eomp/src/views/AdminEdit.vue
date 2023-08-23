@@ -1,16 +1,16 @@
 <template>
-    <main class="flex flex-col">
+    <main class="flex flex-col" v-if="product">
         <h1 class="text-5xl flex items-center gap-2 mt-6">
-            #255 <span class="text-secondary text-3xl ">|</span> Cartier
+            # {{ product.prodID }} <span class="text-secondary text-3xl ">|</span> {{ product.Category }}
         </h1>
-        <label for="name">name</label>
-        <input type="text" id="name">
-        <label for="model">model</label>
-        <input type="text" id="model">
+        <label for="name">Name</label>
+        <input type="text" id="name" :placeholder=" product.prodName ">
+        <label for="model">Model</label>
+        <input type="text" id="model" :placeholder=" product.prodDesc ">
         <div class="grid adminGrid">
             <div class=" flex flex-col">
-                <label for="price">price</label>
-                <input type="text">
+                <label for="price">Price</label>
+                <input type="text" :placeholder="product.amount">
             </div>
             <div class=" flex flex-col">
                 <label for="featured">featured</label>
@@ -55,11 +55,25 @@
             Save Changes
         </button>
     </main>
+    <main v-else>
+        Loading...
+    </main>
 </template>
 
 <script>
     export default {
-        
+        props: [
+            "id"
+        ],
+        computed: {
+            product(){
+                return this.$store.state.product
+            }
+        },
+        mounted(){
+            this.$store.dispatch("fetchProduct", this.id),
+            this.$store.dispatch("fetchProducts")
+        }
     }
 </script>
 

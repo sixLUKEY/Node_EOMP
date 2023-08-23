@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between mx-5 py-5 items-end lg:mx-52">
+  <nav class="flex justify-between mx-5 py-5 items-end lg:mx-52 sticky top-0 bg-white z-50">
     <div class="logo">
       <img src="https://img.logoipsum.com/218.svg" alt="logo" />
     </div>

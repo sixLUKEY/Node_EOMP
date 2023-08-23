@@ -1,6 +1,6 @@
 <template>
     <div class="w-full featured my-6 py-6 flex gap-5">
-        <div class="flex-[3]">
+        <div class="flex-[3] flex flex-col lg:justify-between">
             <h3 class="text-3xl lg:text-6xl">
                 Cartier Rotonde de cartier
             </h3>
@@ -18,7 +18,7 @@
                     Original Papers
                 </p>
             </div>
-            <div class="flex justify-between my-5 h-fit items-center">
+            <div class="flex justify-between my-5 h-fit items-center lg:flex-col lg:items-start lg:gap-5">
                 <p class=" text-3xl price lg:text-5xl">
                     R 1 133 161
                     <br>
@@ -26,11 +26,11 @@
                         + R 2422 insured shipping
                     </span>
                 </p>
-                <button class=" bg-primary text-light px-5 text-lg h-full py-2">
+                <button class=" bg-primary text-light px-3 text-lg h-full py-2 lg:h-fit">
                     Add to cart
                 </button>
             </div>
-            <div class="images">
+            <div class="images lg:max-h-[100px]">
                 <img src="https://i.postimg.cc/76rDtJhJ/27952660-xw3g7vbtu90zpzij6j9dd4mw-Extra-Large-cutout.png" alt="">
                 <img src="https://i.postimg.cc/76rDtJhJ/27952660-xw3g7vbtu90zpzij6j9dd4mw-Extra-Large-cutout.png" alt="">
                 <img src="https://i.postimg.cc/76rDtJhJ/27952660-xw3g7vbtu90zpzij6j9dd4mw-Extra-Large-cutout.png" alt="">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="flex-[2] my-auto">
-            <img src="https://i.postimg.cc/76rDtJhJ/27952660-xw3g7vbtu90zpzij6j9dd4mw-Extra-Large-cutout.png" alt="watch">
+            <img class="mx-auto" src="https://i.postimg.cc/76rDtJhJ/27952660-xw3g7vbtu90zpzij6j9dd4mw-Extra-Large-cutout.png" alt="watch">
         </div>
     </div>
 </template>
@@ -77,6 +77,17 @@
         background-color: #d4d4d4;
         padding: 0.5rem;
         border-radius: 0.2rem;
+        max-height: 100%;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .price{
+            line-height: 2rem;
+        }
+
+        img{
+            max-height: 400px;
+        }
     }
 
 </style>

@@ -31,9 +31,10 @@ const routes = [
     component: () => import( '../views/AdminView.vue')
   },
   {
-    path: '/product',
+    path: '/products/product/:id',
     name: 'product',
-    component: () => import('../views/ProductView.vue')
+    component: () => import('../views/ProductView.vue'),
+    props: true
   },
   {
     path: '/admin/add',
@@ -41,9 +42,10 @@ const routes = [
     component: () => import('../views/AdminAdd.vue')
   },
   {
-    path: '/admin/edit',
+    path: '/admin/edit/:id',
     name: 'admin edit',
-    component: () => import('../views/AdminEdit.vue')
+    component: () => import('../views/AdminEdit.vue'),
+    props: true
   }
 ]
 

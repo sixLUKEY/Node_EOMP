@@ -1,9 +1,9 @@
 <template>
-  <main class="my-12">
-    <div class="border border-primary rounded-md p-3 relative">
+  <main class="my-12" >
+    <div class="border border-primary rounded-md p-3 relative" v-if="product">
       <router-link
         to="/products"
-        class="text-[#284B63]/70 text-xl flex items-center gap-2 cursor-pointer back w-fit"
+        class="text-[#284B63]/70 text-xl flex items-center gap-2 cursor-pointer back w-fit lg:text-2xl"
       >
         <span
           ><svg
@@ -23,7 +23,7 @@
       <img
         class="logo absolute top-3 left-1/2"
         src="https://i.postimg.cc/ZRrKfWCs/pngwing-com-2023-08-21-T085115-471-cutout.png"
-        alt=""
+        alt="logo"
       />
       <img
         class="watermark absolute left-0 w-4/5 top-1/2"
@@ -33,36 +33,41 @@
       <div class="flex">
         <div class="flex-[2] flex flex-col gap-2">
           <div class="mt-5">
-            <h2 class="text-5xl">Audemars Piguet</h2>
-            <h3 class="text-3xl text-primary">Drive de cartier</h3>
-            <p class="text-dark text-lg">Flying Tourbillon W4100013</p>
-            <p class="text-secondary">
+            <h2 class="text-5xl lg:text-7xl">{{ product.category }}</h2>
+            <h3 class="text-3xl text-primary lg:text-5xl">{{ product.prodName }}</h3>
+            <p class="text-dark text-lg lg:text-2xl">{{ product.prodDesc }}</p>
+            <p class="text-secondary lg:text-xl">
               original box | original papers &nbsp; &nbsp;
-              <span class="text-black">Prod. 2016</span>
+              <span class="text-black">Prod. {{ product.prodYear }}</span>
             </p>
           </div>
-          <h3 class="text-3xl my-4">
-            R 878 200
-            <span class="text-lg text-secondary">
+          <h3 class="text-3xl my-4 lg:text-5xl">
+            R {{ product.amount }}
+            <span class="text-lg text-secondary lg:text-xl">
               +R 2422 insured shipping</span
             >
           </h3>
-          <div class="flex gap-3">
-            <button class="text-lg rounded-sm bg-primary text-light p-2">
+          <div class=" imgGrid gap-5 items-center">
+            <button class="text-lg rounded-sm bg-primary text-light p-2 h-fit">
               Add to Cart +
             </button>
-            <div class="flex-1 bg-secondary rounded-sm"></div>
-            <div class="flex-1 bg-secondary rounded-sm"></div>
-            <div class="flex-1 bg-secondary rounded-sm"></div>
+              <img class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl1" :alt="product.prodName">
+              <img  class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl2" :alt="product.prodName">
+              <img  class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl3" :alt="product.prodName">
+            
           </div>
         </div>
         <div class="flex-1 productImg">
           <img
-            src="https://i.postimg.cc/HWQY3fFZ/pngwing-com-2023-08-21-T111413-851.png"
-            alt="watch"
+          class="mx-auto"
+            :src="product.prodUrl"
+            :alt="product.prodName"
           />
         </div>
       </div>
+    </div>
+    <div v-else>
+      Loading...
     </div>
 
     <section class="my-12">
@@ -104,6 +109,19 @@ export default {
   components: {
     MoreProduct,
   },
+  props: [
+    "id"
+  ],
+  computed: {
+    product(){
+      return this.$store.state.product
+    }
+  },
+  mounted(){
+    this.$store.dispatch("fetchProduct", this.id),
+    this.$store.dispatch("fetchProducts")
+  }
+  
 };
 </script>
 
@@ -115,7 +133,7 @@ export default {
 
 .watermark {
   transform: translateY(-50%);
-  opacity: 0.05;
+  opacity: 0.025;
   z-index: -5;
 }
 
@@ -130,6 +148,11 @@ span {
 .productImg img {
   height: 100%;
   object-fit: cover;
+}
+
+.imgGrid{
+  display: grid;
+  grid-template-columns: repeat( 4, 1fr );
 }
 
 h1 {
@@ -156,5 +179,27 @@ img {
   border-radius: 999px;
   background-color: #898a8bcb;
   transform: translateY(50%);
+}
+
+.altImg{
+  max-height: 100px;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .logo{
+    max-height: 50px;
+  }
+  
+  .productImg img{
+    max-height: 400px;
+  }
+  
+}
+@media screen and (min-width: 1024px) {
+  .moreContainer {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 }
 </style>

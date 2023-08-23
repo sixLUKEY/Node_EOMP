@@ -18,11 +18,15 @@
 
                 </tr>
             </thead>
-            <tbody class="my-5">
-                <AdminProduct/>
-                <AdminProduct/>
-                <AdminProduct/>
-                <AdminProduct/>
+            <tbody class="my-5" v-if="products">
+                <AdminProduct
+                v-for="product of products"
+                :key="product.prodID"
+                :product="product"
+                />
+            </tbody>
+            <tbody class="my-5" v-else>
+                No data...
             </tbody>
            
         </table>
@@ -36,6 +40,14 @@
     export default {
         components: {
             AdminProduct
+        },
+        computed: {
+            products(){
+                return this.$store.state.products
+            }
+        },
+        mounted(){
+            this.$store.dispatch("fetchProducts")
         }
     }
 </script>

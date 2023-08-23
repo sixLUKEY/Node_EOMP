@@ -1,6 +1,6 @@
 <template>
     <div class=" border-[2px] border-primary w-full text-center rounded-sm flex flex-col items-center gap-2 p-3">
-        <h2 class="text-3xl">
+        <h2 class="text-3xl lg:text-4xl">
             Our {{ title }}
         </h2>
         <div class="flex justify-between items-center gap-3 w-[70%] ">
@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <p>
+        <p class=" lg:text-lg">
             {{ msg }}
         </p>
     </div>

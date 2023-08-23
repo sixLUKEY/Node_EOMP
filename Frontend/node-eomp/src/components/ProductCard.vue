@@ -1,19 +1,19 @@
 <template>
-    <router-link to="/product" class=" border border-primary flex flex-col justify-between items-center px-2 py-3 rounded-md gap-2 product">
+    <router-link :to="{name:'product', params:{id:product.prodID}}" class=" border border-primary flex flex-col justify-between items-center px-2 py-3 rounded-md gap-2 product">
             <div class="imgContainer">
-                <img src="https://i.postimg.cc/HWQY3fFZ/pngwing-com-2023-08-21-T111413-851.png" alt="Rolex">
+                <img :src="product.prodUrl" :alt="product.prodName">
             </div>
             <h2 class=" text-4xl relative">
-                Rolex
+                {{ product.category }}
             </h2>
             <p class=" text-lg text-dark">
-                Day-Date 40
+                {{ product.prodName }}
                 <span class=" text-primary">
                     - Onyx dial 2023
                 </span>
             </p>
             <p class="text-3xl">
-                R 1 038 202
+                R {{ product.amount }}
             </p>
             <span class="mt-3">
                 <img src="../assets/Icon.svg" alt="arrow">
@@ -25,9 +25,12 @@
 
 
     export default {
-        components: {
-            
-        }
+        
+        props: [
+            "product"
+        ]
+        
+
     }
 </script>
 

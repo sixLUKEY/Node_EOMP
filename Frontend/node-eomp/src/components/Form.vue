@@ -105,4 +105,11 @@ input, textarea{
         color: black;
     }
 
+    @media screen and (min-width: 1024px) {
+      .label{
+        font-size: 1rem;
+      }
+
+    }
+
 </style>
