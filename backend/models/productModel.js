@@ -3,7 +3,7 @@ import db from "../config/database.js";
 // Get All Products
 export const getProducts = (result) => {
   db.query(
-    "SELECT prodID, prodName, prodDesc, quantity , amount , Category, prodYear prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products",
+    "SELECT prodID, prodName, prodDesc, quantity , amount , Category, prodYear, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products",
     (err, results) => {
       if (err) {
         console.log(err);
