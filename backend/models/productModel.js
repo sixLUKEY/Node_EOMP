@@ -3,7 +3,7 @@ import db from "../config/database.js";
 // Get All Products
 export const getProducts = (result) => {
   db.query(
-    "SELECT prodID, prodName, quantity , amount , Category, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products",
+    "SELECT prodID, prodName, prodDesc, quantity , amount , Category, prodYear prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products",
     (err, results) => {
       if (err) {
         console.log(err);
@@ -18,7 +18,7 @@ export const getProducts = (result) => {
 // Get Single Product
 export const getProductById = (id, result) => {
   db.query(
-    "SELECT prodName, quantity, amount, Category, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products WHERE prodID = ?",
+    "SELECT prodName, prodDesc quantity, amount, Category, prodYear, prodUrl, prodUrl1, prodUrl2, prodUrl3, featuredProd FROM Products WHERE prodID = ?",
     [id],
     (err, results) => {
       if (err) {
@@ -46,12 +46,14 @@ export const insertProduct = (data, result) => {
 // Update Product to Database
 export const updateProductById = (data, id, result) => {
   db.query(
-    "UPDATE Products SET prodName = ?, quantity = ?, amount = ?, Category = ?, prodUrl = ?, prodUrl1 = ?, prodUrl2 = ?, prodUrl3 = ?, featuredProd = ?  WHERE prodID = ?",
+    "UPDATE Products SET prodName = ?, prodDesc = ?, quantity = ?, amount = ?, Category = ?, prodYear = ?, prodUrl = ?, prodUrl1 = ?, prodUrl2 = ?, prodUrl3 = ?, featuredProd = ?  WHERE prodID = ?",
     [
       data.prodName,
       data.quantity,
+      data.prodDesc,
       data.amount,
       data.Category,
+      data.prodYear,
       data.prodUrl,
       data.prodUrl1,
       data.prodUrl2,
