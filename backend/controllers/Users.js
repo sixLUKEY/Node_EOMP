@@ -36,7 +36,7 @@ export const createUser = (req, res) => {
   const data = req.body;
   data.userPass = bcrypt.hashSync(data.userPass, 10);
   const user = {
-    emailAdd: data.userAdd,
+    emailAdd: data.emailAdd,
     userPass: data.userPass,
   };
   let token = createToken(user);
