@@ -51,12 +51,13 @@ const routes = [
     path: '/test',
     name: 'test',
     component: () => import('../views/Test.vue'),
-    children: [{
+    children: [
+      {
       path: 'users',
       component: () => import('../views/AdminUsers.vue')
     },{
       path: 'products',
-      component: () => import('../views/AdminProducts.vue')
+      component: () => import('../views/AdminView.vue')
     }
   ],
   }

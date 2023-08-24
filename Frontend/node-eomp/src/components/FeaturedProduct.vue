@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full featured my-6 py-6 flex gap-5">
+    <div class="w-full featured my-6 py-6 flex gap-5 featuredProd">
         <div class="flex-[3] flex flex-col lg:justify-between">
             <h3 class="text-3xl lg:text-6xl">
                 Cartier Rotonde de cartier
@@ -44,8 +44,28 @@
 </template>
 
 <script>
+
+    import { gsap } from 'gsap'
+    import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
     export default {
-        
+        mounted(){
+            let tl = gsap.timeline()
+
+            // gsap.from('h3',{
+            //     x: -500,
+            //     scrollTrigger: {
+            //         trigger: 'h3',
+            //         markers: true,
+            //         start: 'top top',
+            //         scrub: true,
+            //         pin: true
+            //     }
+            // })
+            
+        }
     }
 </script>
 

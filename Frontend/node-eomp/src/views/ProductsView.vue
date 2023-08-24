@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class=" flex justify-between items-center my-12">
-            <div>
+            <div class="filter">
                 <select name="brands" id="brands" class="border border-primary rounded-sm text-primary py-1 cursor-pointer lg:text-2xl lg:px-3">
                     <option value="All">All Brands</option>
                     <option value="rolex">Rolex</option>
@@ -10,9 +10,9 @@
                 </select>
             </div>
             <h1 class="text-5xl text-center lg:text-7xl">
-                Products Page
+                Products
             </h1>
-            <div>
+            <div class="sort">
                 <select name="filter" id="filter" class=" border border-primary rounded-sm text-primary py-1 cursor-pointer lg:text-2xl lg:px-3">
                     <option value="price">
                         Price
@@ -36,6 +36,7 @@
 <script>
 
     import ProductCard from '@/components/ProductCard.vue';
+    import { gsap } from 'gsap'
 
     export default {
         components: {
@@ -48,6 +49,12 @@
         },
         mounted(){
             this.$store.dispatch("fetchProducts")
+
+            let tl = gsap.timeline({ defaults:{ duration: 0.8 }})
+
+            tl.from('h1', {opacity: 0, y:-100, ease: "elastic.out(1, 0.4)"})
+      .from('.filter', {opacity: 0, x:-100, duration: 0.5}, "-=0.3")
+      .from('.sort', {opacity: 0, x:100, duration: 0.5}, "-=0.1")
         }
     }
 </script>

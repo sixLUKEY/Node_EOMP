@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col gap-5 my-6">
+    <div class="flex flex-col gap-5 my-6">
         <router-link to="admin/add" class="ms-auto">
             <button class="bg-primary text-light py-2 px-5 rounded-sm">
                 Add Product
@@ -30,7 +30,7 @@
             </tbody>
            
         </table>
-    </main>
+    </div>
 </template>
 
 <script>

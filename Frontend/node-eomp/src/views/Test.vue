@@ -1,7 +1,16 @@
 <template>
-    <div>
-
-    </div>
+    <main class=" flex flex-col my-12">
+        <div class="mx-auto rounded-sm bg-primary text-light p-1 w-fit text-2xl flex gap-2">
+            <router-link to="/test/users">
+                users
+            </router-link>
+            
+            <router-link to="/test/products">
+                products
+            </router-link>
+        </div>
+        <router-view/>
+    </main>
 </template>
 
 <script>
@@ -11,5 +20,14 @@
 </script>
 
 <style scoped>
+    a.router-link-exact-active{
+        background-color: white;
+        color: var(--primary-color);
+    }
 
+    a{
+        border-radius: 0.075rem;
+        padding: 0.25rem 0.5rem;
+        transition: 0.2s;
+    }
 </style>

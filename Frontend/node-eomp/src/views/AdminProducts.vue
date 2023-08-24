@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        The admin Products
     </div>
 </template>
 
