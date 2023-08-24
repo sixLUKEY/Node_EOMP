@@ -1,7 +1,7 @@
 <template>
   <nav class="flex justify-between mx-5 py-5 items-end lg:mx-52 sticky top-0 bg-white z-50">
-    <div class="logo">
-      <img src="https://img.logoipsum.com/218.svg" alt="logo" />
+    <div class="logo h-16">
+      <img src="https://i.postimg.cc/DyT7mJYW/C74240-D8-2-D0-B-4-BCB-9-F0-E-007-EFFFCCAC9-cutout.png" alt="logo" />
     </div>
     <ul class="links flex text-lg gap-3 items-center lg:text-2xl">
       <li><router-link to="/">Home</router-link></li>
@@ -40,6 +40,10 @@ nav a.router-link-exact-active::after{
     bottom: 0;
     left: 0;
     transition: 0.2s;
+}
+
+img{
+  max-height: 100%;
 }
 
 </style>

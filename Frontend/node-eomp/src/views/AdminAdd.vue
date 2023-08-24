@@ -10,7 +10,11 @@
       <option value="cartier">cartier</option>
       <option value="rolex">rolex</option>
       <option value="audemars piguet">audemars piguet</option>
-      <option value="cartier">cartier</option>
+      <option value="patek philippe">Patek Philippe</option>
+      <option value="mont blanc">mont blanc</option>
+      <option value="tag heuer">tag heuer</option>
+      <option value="Hublot">Hublot</option>
+      <option value="Seiko">Seiko</option>
     </select>
     <label for="name">name</label>
     <input type="text" maxlength="255" autocomplete="off" required v-model="prodName" id="name" />
@@ -24,11 +28,11 @@
       <div class="flex flex-col">
         <label for="featured">featured</label>
         <select name="featured" id="featured" v-model="featuredProd">
-          <option value="1">true</option>
           <option value="0">false</option>
+          <option value="1">true</option>
         </select>
       </div>
-      <div>
+      <div class="flex flex-col">
         <label for="Year">Production Year</label>
         <input type="number" autocomplete="off" required v-model="prodYear">
       </div>

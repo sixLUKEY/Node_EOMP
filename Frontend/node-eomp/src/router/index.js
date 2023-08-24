@@ -46,6 +46,19 @@ const routes = [
     name: 'admin edit',
     component: () => import('../views/AdminEdit.vue'),
     props: true
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/Test.vue'),
+    children: [{
+      path: 'users',
+      component: () => import('../views/AdminUsers.vue')
+    },{
+      path: 'products',
+      component: () => import('../views/AdminProducts.vue')
+    }
+  ],
   }
 ]
 

@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
-const url = 'https://eomp-backend.onrender.com/products/'
+const productsUrl = 'https://eomp-backend.onrender.com/products/'
+const usersUrl = 'https://eomp-backend.onrender.com/users/'
 
 export default createStore({
   state: {
@@ -12,12 +13,18 @@ export default createStore({
     },
     setProduct: ( state, value ) => {
       state.product = value
+    },
+    setUsers: ( state, value ) => {
+      state.users = value
+    },
+    setUser: ( state, value ) => {
+      state.user = value
     }
   },
   actions: {
     async fetchProducts( context ){
       try {
-        let  products  = await ( await fetch(url)).json()
+        let  products  = await ( await fetch(productsUrl)).json()
         console.log( products )
         if ( products ){
           context.commit( "setProducts", products )
@@ -30,12 +37,38 @@ export default createStore({
     },
     async fetchProduct( context, id ){
       try {
-        let product = await ( await fetch( url + id )).json()
+        let product = await ( await fetch( productsUrl + id )).json()
         console.log( product )
         if ( product ){
           context.commit( "setProduct", product )
         } else {
           context.commit( alert("Product not found"))
+        }
+      } catch( error ){
+        alert( error )
+      }
+    },
+    async fetchUsers( context ){
+      try {
+        let  users  = await ( await fetch(usersUrl)).json()
+        console.log( users )
+        if ( users ){
+          context.commit( "setUsers", users )
+        } else {
+          context.commit(alert("There was an error fetching Users"))
+        }
+      } catch ( error ) {
+        alert( error )
+      }
+    },
+    async fetchUser( context, id ){
+      try {
+        let user = await ( await fetch( usersUrl + id )).json()
+        console.log( user )
+        if ( user ){
+          context.commit( "setUser", user )
+        } else {
+          context.commit( alert("User not found"))
         }
       } catch( error ){
         alert( error )

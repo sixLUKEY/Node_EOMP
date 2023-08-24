@@ -6,10 +6,10 @@
             <h2 class=" text-4xl relative">
                 {{ product.category }}
             </h2>
-            <p class=" text-lg text-dark">
+            <p class=" text-lg text-dark text-center">
                 {{ product.prodName }}
                 <span class=" text-primary">
-                    - Onyx dial 2023
+                    - {{ product.prodDesc }}
                 </span>
             </p>
             <p class="text-3xl">

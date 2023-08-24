@@ -4,22 +4,26 @@
             # {{ product.prodID }} <span class="text-secondary text-3xl ">|</span> {{ product.Category }}
         </h1>
         <label for="name">Name</label>
-        <input type="text" id="name" :placeholder=" product.prodName ">
+        <input type="text" id="name" :placeholder=" product.prodName " required v-model="product.prodName">
         <label for="model">Model</label>
-        <input type="text" id="model" :placeholder=" product.prodDesc ">
+        <input type="text" id="model" :placeholder=" product.prodDesc " v-model="product.prodDesc" required>
         <div class="grid adminGrid">
             <div class=" flex flex-col">
                 <label for="price">Price</label>
-                <input type="text" :placeholder="product.amount">
+                <input type="text" required :placeholder="product.amount" v-model="product.amount">
             </div>
             <div class=" flex flex-col">
                 <label for="featured">featured</label>
-                <select name="featured" id="featured">
-                    <option value="true">true</option>
-                    <option value="false">false</option>
+                <select name="featured" id="featured" v-model="product.featuredProd">
+                    <option value="0">false</option>
+                    <option value="1">true</option>
                 </select>
             </div>
             <div class=" flex flex-col">
+                <label for="year">Production Year</label>
+                <input type="number" required v-model="product.prodYear">
+            </div>
+            <!-- <div class=" flex flex-col">
                 <label for="box">original box</label>
                 <select name="box" id="box">
                     <option value="true">true</option>
@@ -32,26 +36,26 @@
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>
-            </div>
+            </div> -->
             <div class=" flex flex-col">
                 <label for="price">url 1</label>
-                <input type="url">
+                <input type="url" required v-model="product.prodUrl">
             </div>
             <div class=" flex flex-col">
                 <label for="price">url 2</label>
-                <input type="url">
+                <input type="url" required v-model="product.prodUrl1">
             </div>
             <div class=" flex flex-col">
                 <label for="price">url 3</label>
-                <input type="url">
+                <input type="url" required v-model="product.prodUrl2">
             </div>
             <div class=" flex flex-col">
                 <label for="url ">url 4</label>
-                <input type="url">
+                <input type="url" required v-model="product.prodUrl3">
             </div>
         </div>
 
-        <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5">
+        <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5" @click="updateProduct">
             Save Changes
         </button>
     </main>
@@ -61,7 +65,23 @@
 </template>
 
 <script>
+
+    import axios from 'axios'
+
     export default {
+        data(){
+            return {
+            prodName: '',
+            prodDesc: '',
+            amount: '',
+            Category: '',
+            prodYear: '',
+            featuredProd: '',
+            prodUrl: '',
+            prodUrl1: '',
+            prodUrl2: '',
+            }
+        },
         props: [
             "id"
         ],
@@ -73,6 +93,41 @@
         mounted(){
             this.$store.dispatch("fetchProduct", this.id),
             this.$store.dispatch("fetchProducts")
+        },
+        methods: {
+            async updateProduct(){
+                try {
+                    // console.log( this.product.prodYear )
+                    await axios.put(
+                        `https://eomp-backend.onrender.com/products/${this.$route.params.id}`,
+                        {
+                            prodName: this.product.prodName,
+                            prodDesc: this.product.prodDesc,
+                            amount: this.product.amount,
+                            Category: this.product.Category,
+                            prodYear: this.product.prodYear,
+                            featuredProd: this.product.featuredProd,
+                            prodUrl: this.product.prodUrl,
+                            prodUrl1: this.product.prodUrl1,
+                            prodUrl2: this.product.prodUrl2,
+                            prodUrl3: this.product.prodUrl3
+                        }
+                    )
+                    this.prodName = ''
+                    this.prodDesc = ''
+                    this.amount = ''
+                    this.Category = ''
+                    this.prodYear = ''
+                    this.featuredProd = ''
+                    this.prodUrl = ''
+                    this.prodUrl1 = ''
+                    this.prodUrl2 = ''
+                    this.prodUrl3 = ''
+                    this.$router.push('/admin')
+                } catch ( error ){
+                    alert( error )
+                }
+            }
         }
     }
 </script>
