@@ -8,7 +8,6 @@ import {
 import bcrypt from "bcrypt";
 import { createToken } from "../middleware/authenticateUser.js";
 
-
 // Get All Products
 export const showUsers = (req, res) => {
   getUsers((err, results) => {
@@ -42,10 +41,8 @@ export const createUser = (req, res) => {
   let token = createToken(user);
   insertUser(data, (err, results) => {
     if (err) throw err;
-    res.json({
-        token, results
-    })
-   
+    res.cookie("authorizedUser", token, { maxAge: 360000, httpOnly: true });
+    res.json({ results, token });
   });
 };
 

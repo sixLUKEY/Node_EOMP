@@ -43,6 +43,10 @@ export const insertUser = (data, result) => {
   });
 };
 
+export const findUser = (data, result) => {
+
+}
+
 // Update Product to Database
 export const updateUserById = (data, id, result) => {
   db.query(

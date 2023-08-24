@@ -16,14 +16,7 @@ import cookieParser from "cookie-parser";
 // init express
 const app = express();
 
-  
-// use express json
-app.use(express.json());
-  
-// use cors
-app.use(cors());
-
-app.use((req, res, next) =>{
+ app.use((req, res, next) =>{
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Credentials", "true");
 	res.header("Access-Control-Allow-Methods", "*");
@@ -31,7 +24,14 @@ app.use((req, res, next) =>{
 	res.header("Access-Control-Allow-Headers", "*");
 	res.header("Access-Control-Expose-Headers", "Authorization");
 	next();
-})
+}) 
+// use express json
+app.use(express.json());
+app.use(cookieParser());
+// use cors
+app.use(cors());
+
+
 
 
 //Session 

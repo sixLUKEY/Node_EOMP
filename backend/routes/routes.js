@@ -3,6 +3,7 @@ import express from "express";
 // import function from controller
 import { showProducts, showProductById, createProduct, updateProduct, deleteProduct } from "../controllers/Product.js";
 import { showUsers, showUserById, createUser, updateUser, deleteUser } from "../controllers/Users.js";
+import { verifyAToken } from "../middleware/authenticateUser.js";
   
 // init express router
 const router = express.Router();
@@ -36,6 +37,8 @@ router.put('/users/:id', updateUser);
   
 // Delete User
 router.delete('/users/:id', deleteUser);
+
+router.post('/login', verifyAToken);
   
 // export default router
 export default router;
