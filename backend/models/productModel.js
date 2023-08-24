@@ -49,8 +49,8 @@ export const updateProductById = (data, id, result) => {
     "UPDATE Products SET prodName = ?, prodDesc = ?, quantity = ?, amount = ?, Category = ?, prodYear = ?, prodUrl = ?, prodUrl1 = ?, prodUrl2 = ?, prodUrl3 = ?, featuredProd = ?  WHERE prodID = ?",
     [
       data.prodName,
-      data.quantity,
       data.prodDesc,
+      data.quantity,
       data.amount,
       data.Category,
       data.prodYear,
