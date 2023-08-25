@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-5 my-6">
         <table class="w-full text-center">
-            <thead class="border-primary border-2 text-xl">
+            <thead class="border-primary border-2 sm:text-xl">
                 <tr>
                     <th class="py-3">ID</th>
                     <th>Firstname</th>
@@ -20,7 +20,7 @@
                 />
             </tbody>
             <tbody class="my-5" v-else>
-                loading
+                <Loader/>
             </tbody>
            
         </table>
@@ -30,10 +30,12 @@
 <script>
 
     import AdminUser from '@/components/AdminUsers.vue';
+    import Loader from '@/components/Loader.vue';
 
     export default {
         components: {
-            AdminUser
+            AdminUser,
+            Loader
         },
         computed: {
             users(){

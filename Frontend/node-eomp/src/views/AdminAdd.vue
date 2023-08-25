@@ -54,9 +54,17 @@
       </div>
     </div>
 
-    <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5" @click="addProduct">
-      submit
-    </button>
+    <div class=" flex justify-between items-center">
+      <div
+        id="success"
+        class="success bg-green-200 p-3 text-xl h-fit w-fit rounded-md"
+      >
+        Product Successfully Added ✅
+      </div>
+      <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5" @click="addProduct">
+        submit
+      </button>
+    </div>
   </main>
 </template>
 
@@ -104,7 +112,14 @@ export default {
                 this.prodUrl2 = ''
                 this.prodUrl3 = ''
                 this.prodYear = ''
-                this.$router.push('/admin')
+                const successPop = document.getElementById("success");
+        successPop.classList.toggle("show");
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            this.$router.push("/admin/products");
+            resolve();
+          }, 2000);
+        });
             } catch ( error ){
                 alert ( err )
             }
@@ -137,5 +152,21 @@ label {
 .adminGrid {
   grid-template-columns: repeat(2, 1fr);
   gap: 0 1.25rem;
+}
+
+.success {
+  transform: translateX(-500px);
+  transition: 0.2s;
+  z-index: 9999;
+}
+
+.show {
+  transform: translateX(0px);
+}
+
+@media screen and (max-width:400px) {
+  .adminGrid{
+    grid-template-columns: 1fr;
+  }
 }
 </style>

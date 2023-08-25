@@ -1,5 +1,5 @@
 <template>
-  <main class="my-12" >
+  <main class="my-12 min-h-[60vh]" >
     <div class="border border-primary rounded-md p-3 relative" v-if="product">
       <router-link
         to="/products"
@@ -22,28 +22,27 @@
       </router-link>
       <img
         class="logo absolute top-3 left-1/2"
-        src="https://i.postimg.cc/ZRrKfWCs/pngwing-com-2023-08-21-T085115-471-cutout.png"
+        src="https://i.postimg.cc/3wkJGZtC/050-AFED4-02-F0-454-E-9-E3-D-65-FCB7-B8-E8-CD-cutout.png"
         alt="logo"
       />
       <img
         class="watermark absolute left-0 w-4/5 top-1/2"
-        src="https://i.postimg.cc/ZRrKfWCs/pngwing-com-2023-08-21-T085115-471-cutout.png"
+        src="https://i.postimg.cc/3wkJGZtC/050-AFED4-02-F0-454-E-9-E3-D-65-FCB7-B8-E8-CD-cutout.png"
         alt="rolex"
       />
       <div class="flex">
         <div class="flex-[2] flex flex-col gap-2">
           <div class="mt-5">
-            <h2 class="text-5xl lg:text-7xl">{{ product.category }}</h2>
-            <h3 class="text-3xl text-primary lg:text-5xl">{{ product.prodName }}</h3>
-            <p class="text-dark text-lg lg:text-2xl">{{ product.prodDesc }}</p>
-            <p class="text-secondary lg:text-xl">
+            <h3 class="text-xl text-primary lg:text-5xl sm:text-2xl md:text-3xl">{{ product.prodName }}</h3>
+            <p class="text-dark sm:text-xl md:text-2xl lg:text-2xl">{{ product.prodDesc }}</p>
+            <p class="text-secondary text-sm sm:text-base lg:text-xl md:text-xl">
               original box | original papers &nbsp; &nbsp;
               <span class="text-black">Prod. {{ product.prodYear }}</span>
             </p>
           </div>
-          <h3 class="text-3xl my-4 lg:text-5xl">
+          <h3 class="text-xl sm:text-3xl my-4 lg:text-5xl">
             R {{ product.amount }}
-            <span class="text-lg text-secondary lg:text-xl">
+            <span class="text-sm text-secondary lg:text-xl">
               +R 2422 insured shipping</span
             >
           </h3>
@@ -51,9 +50,11 @@
             <button class=" rounded-sm bg-primary text-light p-2 h-fit">
               Add to Cart +
             </button>
-              <img class="altImg p-1  rounded-md" :src="product.prodUrl1" :alt="product.prodName">
-              <img  class="altImg p-1  rounded-md" :src="product.prodUrl2" :alt="product.prodName">
-              <img  class="altImg p-1  rounded-md" :src="product.prodUrl3" :alt="product.prodName">
+            <div class="grid justify-end grid-cols-3 images">
+              <img class="altImg p-1 flex-1 rounded-md" :src="product.prodUrl1" :alt="product.prodName">
+              <img class="altImg p-1 flex-1 rounded-md" :src="product.prodUrl2" :alt="product.prodName">
+              <img class="altImg p-1 flex-1 rounded-md" :src="product.prodUrl3" :alt="product.prodName">
+            </div>
             
           </div>
         </div>
@@ -67,48 +68,22 @@
       </div>
     </div>
     <div v-else>
-      Loading...
+      <Loader/>
     </div>
 
-    <section class="my-12">
-      <h1 class="flex text-4xl">
-        More from &nbsp;
-        <span>
-          <img
-            src="https://i.postimg.cc/ZRrKfWCs/pngwing-com-2023-08-21-T085115-471-cutout.png"
-            alt="cartier"
-          />
-        </span>
-      </h1>
-      <div class="w-full moreContainer my-2 relative">
-        <MoreProduct />
-        <MoreProduct />
-        <div class="nextButton flex items-center justify-center cursor-pointer">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M19.6579 11.2911C19.1397 10.767 19.1397 9.91722 19.6579 9.39309C20.1761 8.86897 21.0162 8.86897 21.5344 9.39309L28.6114 16.551C29.1295 17.0751 29.1295 17.9249 28.6114 18.449L21.5344 25.6069C21.0162 26.131 20.1761 26.131 19.6579 25.6069C19.1397 25.0828 19.1397 24.233 19.6579 23.7089L24.4696 18.8421H7.32692C6.59408 18.8421 6 18.2412 6 17.5C6 16.7588 6.59408 16.1579 7.32692 16.1579H24.4696L19.6579 11.2911Z"
-              fill="white"
-            />
-          </svg>
-        </div>
-      </div>
-    </section>
+   
   </main>
 </template>
 
 <script>
 import MoreProduct from "@/components/MoreProduct.vue";
+import Loader from "@/components/Loader.vue";
 
 export default {
   components: {
     MoreProduct,
-  },
+    Loader
+},
   props: [
     "id"
   ],
@@ -152,7 +127,11 @@ span {
 
 .imgGrid{
   display: grid;
-  grid-template-columns: 100px 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+}
+
+.imgGrid div img{
+  object-fit: cover;
 }
 
 h1 {
@@ -200,6 +179,14 @@ img {
 @media screen and (min-width: 1024px) {
   .moreContainer {
   grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and ( max-width: 400px ) {
+    .images{
+      height: 0px;
+    }
+
+    
 }
 
 }

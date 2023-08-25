@@ -3,6 +3,8 @@
         <h1 class="text-5xl flex items-center gap-2 mt-6">
             # {{ product.prodID }} <span class="text-secondary text-3xl ">|</span> {{ product.Category }}
         </h1>
+        <label for="brand">Brand</label>
+        <input type="text" id="brand" :placeholder=" product.Category " required v-model="product.Category">
         <label for="name">Name</label>
         <input type="text" id="name" :placeholder=" product.prodName " required v-model="product.prodName">
         <label for="model">Model</label>
@@ -23,20 +25,6 @@
                 <label for="year">Production Year</label>
                 <input type="number" required v-model="product.prodYear">
             </div>
-            <!-- <div class=" flex flex-col">
-                <label for="box">original box</label>
-                <select name="box" id="box">
-                    <option value="true">true</option>
-                    <option value="false">false</option>
-                </select>
-            </div>
-            <div class=" flex flex-col">
-                <label for="papers">original papers</label>
-                <select name="papers" id="papers">
-                    <option value="true">true</option>
-                    <option value="false">false</option>
-                </select>
-            </div> -->
             <div class=" flex flex-col">
                 <label for="price">url 1</label>
                 <input type="url" required v-model="product.prodUrl">
@@ -54,25 +42,27 @@
                 <input type="url" required v-model="product.prodUrl3">
             </div>
         </div>
-
-        <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5" @click="updateProduct">
-            Save Changes
-        </button>
+        <div class="flex justify-between items-center">
+            <div
+    id="success"
+    class="success bg-green-200 p-3 text-xl h-fit w-fit rounded-md"
+  >
+    Product Successfully Updated ✅
+  </div>
+  <button class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5" @click="updateProduct">
+      Save Changes
+  </button>
+        </div>
     </main>
     <main v-else>
-        Loading...
+        <Loader/>
     </main>
-    <div
-    id="success"
-    class="success bg-green-200 p-3 text-xl w-fit rounded-md absolute bottom-0 left-1/2"
-  >
-    User Successfully Updated ✅
-  </div>
 </template>
 
 <script>
 
     import axios from 'axios'
+    import Loader from '@/components/Loader.vue'
 
     export default {
         data(){
@@ -87,6 +77,9 @@
             prodUrl1: '',
             prodUrl2: '',
             }
+        },
+        components: {
+            Loader
         },
         props: [
             "id"
@@ -176,12 +169,19 @@ select{
         pointer-events: none;
   transition: 0.2s;
   z-index: 9999;
-  opacity: 0;
-  transform: translateX(-50%);
+  opacity: 1;
+  transform: translateX(-500px);
 }
 
 .show {
     opacity: 1;
+    transform: translateX(0px);
+}
+
+@media screen and (max-width: 400px) {
+    .adminGrid{
+        grid-template-columns: 1fr;
+    }
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-5 my-6">
-        <router-link to="admin/add" class="ms-auto">
+        <router-link to="/admin/products/add" class="ms-auto">
             <button class="bg-primary text-light py-2 px-5 rounded-sm">
                 Add Product
             </button>
@@ -11,7 +11,7 @@
                 <tr>
                     <th class="py-3">ID</th>
                     <th>Name</th>
-                    <th>Model</th>
+                    <th class="model">Model</th>
                     <th>Year</th>
                     <th>Price</th>
                     <th>Actions</th>
@@ -26,7 +26,7 @@
                 />
             </tbody>
             <tbody class="my-5" v-else>
-                No data...
+                <Loader/>
             </tbody>
            
         </table>
@@ -36,10 +36,12 @@
 <script>
 
     import AdminProduct from '@/components/AdminProduct.vue';
+    import Loader from '@/components/Loader.vue';
 
     export default {
         components: {
-            AdminProduct
+            AdminProduct,
+            Loader
         },
         computed: {
             products(){
@@ -53,5 +55,9 @@
 </script>
 
 <style scoped>
-
+    @media screen and ( max-width: 640px ) {
+        .model{
+            display: none;
+        }
+    }
 </style>

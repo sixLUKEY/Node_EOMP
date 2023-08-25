@@ -2,7 +2,7 @@
     <tr class="text-lg border-black/10 border-b-2">
     <th class="py-8">{{ product.prodID }}</th>
     <td class="max-w-[100px]">{{ product.prodName }}</td>
-    <td class="max-w-[100px]">
+    <td class="max-w-[100px] model">
         {{ product.prodDesc }}
     </td>
     <td>
@@ -28,6 +28,7 @@
             try {
               await axios.delete(`https://eomp-backend.onrender.com/products/${id}`)
               this.$store.dispatch("fetchProducts")
+              alert('succesfully deleted')
             } catch ( error ){
               alert ( error )
             }
@@ -37,5 +38,9 @@
 </script>
 
 <style scoped>
-
+  @media screen and ( max-width: 640px ) {
+        .model{
+            display: none;
+        }
+    }
 </style>

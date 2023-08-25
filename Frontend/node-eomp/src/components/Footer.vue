@@ -5,13 +5,10 @@
                 copyright &copy; 2023
             </p>
             <ul class="flex underline gap-3">
-                <li>
+                <li class="faqs">
                     <router-link to="/contact">
                         Frequently asked questions
                     </router-link>
-                </li>
-                <li>
-                    Job opportunities
                 </li>
                 <li>
                     <router-link to="/contact">
@@ -26,12 +23,6 @@
                 <li>Manage Cookies</li>
                 <li>Terms and Conditions</li>
             </ul>
-            <ul class=" flex gap-3">
-                <li>G</li>
-                <li>L</li>
-                <li>I</li>
-                <li>D</li>
-            </ul>
         </div>
     </footer>
 </template>
@@ -43,5 +34,9 @@
 </script>
 
 <style scoped>
-
+    @media screen and (max-width:400px) {
+  .faqs{
+    display: none;
+  }
+}
 </style>

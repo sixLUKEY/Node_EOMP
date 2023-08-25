@@ -32,7 +32,7 @@ const routes = [
     props: true
   },
   {
-    path: '/admin/add',
+    path: '/admin/products/add',
     name: 'admin add',
     component: () => import('../views/AdminAdd.vue')
   },

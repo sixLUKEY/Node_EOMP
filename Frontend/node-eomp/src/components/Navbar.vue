@@ -1,7 +1,7 @@
 <template>
-  <nav class="flex justify-between mx-5 py-5 items-end lg:mx-52 sticky top-0 bg-white z-50">
+  <nav class="flex justify-between mx-5 py-5 items-end lg:mx-20 xl:mx-52 sticky top-0 bg-white z-50">
     <div class="logo h-12">
-      <img src="https://i.postimg.cc/3wkJGZtC/050-AFED4-02-F0-454-E-9-E3-D-65-FCB7-B8-E8-CD-cutout.pngg" alt="logo" />
+      <img src="https://i.postimg.cc/3wkJGZtC/050-AFED4-02-F0-454-E-9-E3-D-65-FCB7-B8-E8-CD-cutout.png" alt="logo" />
     </div>
     <ul class="links flex text-lg gap-3 items-center lg:text-2xl">
       <li><router-link to="/">Home</router-link></li>
@@ -44,6 +44,12 @@ nav a.router-link-exact-active::after{
 
 img{
   max-height: 100%;
+}
+
+@media screen and ( max-width: 400px ) {
+  .logo{
+    display: none;
+  }
 }
 
 </style>

@@ -9,7 +9,7 @@ module.exports = {
         'dark': '#353535',
         'light': '#FFFFFF'
       }
-    },
+    }
   },
   plugins: [],
 }

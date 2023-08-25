@@ -30,6 +30,7 @@
             try {
               await axios.delete(`https://eomp-backend.onrender.com/users/${id}`)
               this.$store.dispatch("fetchUsers")
+              alert('Successfully deleted the user')
             } catch ( error ){
               alert ( error )
             }

@@ -22,6 +22,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+html{
+  scroll-behavior: smooth;
+}
+
 #app {
   font-family: 'Bebas Neue', sans-serif;  
   -webkit-font-smoothing: antialiased;
@@ -46,8 +50,15 @@ main{
 
 @media screen and ( min-width: 1024px ) {
   main{
+    margin: 0 5rem;
+  }
+}
+@media screen and ( min-width: 1280px ) {
+  main{
     margin: 0 13rem;
   }
 }
+
+
 
 </style>

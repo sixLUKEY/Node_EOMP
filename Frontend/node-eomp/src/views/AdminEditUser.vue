@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col" v-if="user">
-    <h1 class="text-5xl flex items-center gap-2 mt-6">
-      # {{ user.userID }} <span class="text-secondary text-3xl">|</span>
+    <h1 class="text-2xl sm:text-5xl flex items-center gap-2 mt-6">
+      # {{ user.userID }} <span class="text-secondary  sm:text-3xl">|</span>
       {{ user.userProfile }}
     </h1>
     <label for="name">firstName</label>
@@ -49,27 +49,34 @@
         <input type="email" required v-model="user.emailAdd" />
       </div>
     </div>
-
-    <button
-      class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5"
-      @click="updateUser"
-    >
-      Save Changes
-    </button>
+    <div class="flex items-center justify-between">
+      <div
+        id="success"
+        class="success bg-green-200 p-3 text-xl h-fit w-fit rounded-md"
+      >
+        User Successfully Updated ✅
+      </div>
+      <button
+        class="bg-primary w-fit text-light py-2 px-5 ms-auto my-5"
+        @click="updateUser"
+      >
+        Save Changes
+      </button>
+    </div>
   </main>
-  <main v-else>Loading...</main>
-  <div
-    id="success"
-    class="success bg-green-200 p-3 text-xl w-fit rounded-md absolute top-20 left-1/2"
-  >
-    User Successfully Updated ✅
-  </div>
+  <main v-else>
+    <Loader />
+  </main>
 </template>
 
 <script>
 import axios from "axios";
+import Loader from "@/components/Loader.vue";
 
 export default {
+  components: {
+    Loader,
+  },
   data() {
     return {
       firstName: "",
@@ -157,12 +164,22 @@ label {
 }
 
 .success {
-  transform: translateY(-500px) translateX(-50%);
+  transform: translateX(-500px);
   transition: 0.2s;
   z-index: 9999;
 }
 
 .show {
-  transform: translateY(0px) translateX(-50%);
+  transform: translateX(0px);
+}
+
+@media screen and (max-width:400px) {
+  .adminGrid{
+    grid-template-columns: 1fr;
+}
+
+.success{
+    padding: 0.3rem;
+}
 }
 </style>

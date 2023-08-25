@@ -1,7 +1,7 @@
 <template>
     <div class=" border-[2px] border-secondary p-5 flex flex-col gap-3 rounded-md">
         <div class="flex">
-            <div class="flex-1">
+            <div class="flex-1 userImg pe-3 rounded">
                 <img :src="url" alt="user">
             </div>
             <div class="flex-1 flex flex-col justify-evenly">
@@ -35,5 +35,9 @@
 </script>
 
 <style scoped>
-
+    @media screen and (max-width:400px) {
+  .userImg{
+    display: none;
+  }
+}
 </style>

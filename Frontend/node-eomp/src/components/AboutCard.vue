@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <p class=" lg:text-lg">
+        <p class=" lg:text-lg h-full flex justify-center items-center">
             {{ msg }}
         </p>
     </div>
