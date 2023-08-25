@@ -79,7 +79,7 @@ export const userLogin = (req, res) => {
 
         if (cResult) {
           res.json({
-            message: "You have successfully logged in ",
+            message: "You have successfully logged in  to Another Time",
             token,
             result: result[0],
           });

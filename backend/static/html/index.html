@@ -57,12 +57,17 @@ h2 {
       <tr>
         <td>POST</td>
         <td>/users</td>
-        <td>Creates a new user</td>
+        <td>Creates a new user/register a new user</td>
       </tr>
       <tr>
-        <td>PATCH/PUT</td>
+        <td>POST</td>
+        <td>/logins</td>
+        <td>Checks if user information is correct the allows you to log in</td>
+      </tr>
+      <tr>
+        <td>PUT</td>
         <td>/users/:id</td>
-        <td>Updates an existing user or adds a user</td>
+        <td>Updates an existing user</td>
       </tr>
       <tr>
         <td>DELETE</td>
@@ -84,22 +89,22 @@ h2 {
       </tr>
       <tr>
         <td>GET </td>
-        <td>/product/:id</td>
+        <td>/products/:id</td>
         <td>Displays a single user by id</td>
       </tr>
       <tr>
         <td>POST</td>
-        <td>/product</td>
+        <td>/products</td>
         <td>Adds a new product</td>
       </tr>
       <tr>
         <td>PUT/PATCH</td>
-        <td>/product/:id</td>
+        <td>/products/:id</td>
         <td>Updates a products details</td>
       </tr>
       <tr>
         <td>DELETE </td>
-        <td>/product/:id</td>
+        <td>/products/:id</td>
         <td>deletes a product from the database</td>
       </tr>
     </table>

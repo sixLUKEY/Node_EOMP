@@ -18,7 +18,7 @@ export function createToken (user){
 
 export function verifyAToken(res, req, next) {
   // grab the token 
-  const token = req.headers["authorizedUser"];
+  const token = req.headers["legitUser"];
   // 
   if(verify(token,  {secret: process.env.secret_key})){
     next()
