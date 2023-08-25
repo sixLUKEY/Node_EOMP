@@ -6,13 +6,17 @@
             </p>
             <ul class="flex underline gap-3">
                 <li>
-                    Frequently asked questions
+                    <router-link to="/contact">
+                        Frequently asked questions
+                    </router-link>
                 </li>
                 <li>
                     Job opportunities
                 </li>
                 <li>
-                    Contact us
+                    <router-link to="/contact">
+                        Contact us
+                    </router-link>
                 </li>
             </ul>
         </div>

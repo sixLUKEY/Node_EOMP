@@ -1,5 +1,6 @@
 <template>
-    <form action="" class="flex flex-col">
+    <form action="https://formspree.io/f/xbjvopya"
+  method="POST" class="flex flex-col">
       <div class="flex gap-5 my-5">
         <h1 class="text-5xl formHeading">Contact Us</h1>
         <div class="flex justify-between items-center gap-3 flex-1 border1">
@@ -32,19 +33,22 @@
       </div>
       <div class="input1">
 
-        <input type="text" class="w-full rounded-sm p-2 text-black" name="name" id="name" placeholder=" " required>
+        <input type="text" class="w-full rounded-sm p-2 text-black" name="name" id="name" placeholder=" " required  oninvalid="this.setCustomValidity('Please insert your Full Name')"
+            oninput="this.setCustomValidity('')">
         <div class="label" >
           Fullname
         </div>
       </div>
       <div class="input2">
 
-        <input type="text" class="w-full rounded-sm p-2 text-black " id="email" placeholder=" " required>
+        <input type="text" name="email" class="w-full rounded-sm p-2 text-black " id="email" placeholder=" " required  oninvalid="this.setCustomValidity('Please Enter a valid email address')"
+            oninput="this.setCustomValidity('')">
         <div class="label">
               Email
             </div>
       </div>
-      <textarea placeholder="Leave a message" class="w-full p-2 relative input3" name="message" id="message" cols="30" rows="10" required></textarea>
+      <textarea placeholder="Leave a message" class="w-full p-2 relative input3" name="message" id="message" cols="30" rows="10" required  oninvalid="this.setCustomValidity('Leave a message too!')"
+            oninput="this.setCustomValidity('')"></textarea>
 
       <div class="flex gap-5">
         <div class="flex justify-between items-center gap-3 flex-1 border2">

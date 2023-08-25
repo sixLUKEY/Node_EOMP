@@ -47,13 +47,13 @@
               +R 2422 insured shipping</span
             >
           </h3>
-          <div class=" imgGrid gap-5 items-center">
-            <button class="text-lg rounded-sm bg-primary text-light p-2 h-fit">
+          <div class=" imgGrid gap-1 items-center">
+            <button class=" rounded-sm bg-primary text-light p-2 h-fit">
               Add to Cart +
             </button>
-              <img class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl1" :alt="product.prodName">
-              <img  class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl2" :alt="product.prodName">
-              <img  class="altImg p-1 bg-slate-300 rounded-md" :src="product.prodUrl3" :alt="product.prodName">
+              <img class="altImg p-1  rounded-md" :src="product.prodUrl1" :alt="product.prodName">
+              <img  class="altImg p-1  rounded-md" :src="product.prodUrl2" :alt="product.prodName">
+              <img  class="altImg p-1  rounded-md" :src="product.prodUrl3" :alt="product.prodName">
             
           </div>
         </div>
@@ -147,12 +147,12 @@ span {
 
 .productImg img {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .imgGrid{
   display: grid;
-  grid-template-columns: repeat( 4, 1fr );
+  grid-template-columns: 100px 1fr 1fr 1fr;
 }
 
 h1 {
@@ -182,7 +182,8 @@ img {
 }
 
 .altImg{
-  max-height: 100px;
+  max-height: 80px;
+  object-fit: cover ;
 }
 
 

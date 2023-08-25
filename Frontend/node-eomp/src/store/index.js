@@ -63,10 +63,10 @@ export default createStore({
     },
     async fetchUser( context, id ){
       try {
-        let user = await ( await fetch( usersUrl + id )).json()
-        console.log( user )
+        let  user  = await ( await fetch( usersUrl + id )).json()
+        console.log( user[0] )
         if ( user ){
-          context.commit( "setUser", user )
+          context.commit( "setUser", user[0] )
         } else {
           context.commit( alert("User not found"))
         }

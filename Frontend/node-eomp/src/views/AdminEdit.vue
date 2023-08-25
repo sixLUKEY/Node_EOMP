@@ -62,6 +62,12 @@
     <main v-else>
         Loading...
     </main>
+    <div
+    id="success"
+    class="success bg-green-200 p-3 text-xl w-fit rounded-md absolute bottom-0 left-1/2"
+  >
+    User Successfully Updated ✅
+  </div>
 </template>
 
 <script>
@@ -123,7 +129,14 @@
                     this.prodUrl1 = ''
                     this.prodUrl2 = ''
                     this.prodUrl3 = ''
-                    this.$router.push('/admin')
+                    const successPop = document.getElementById("success");
+        successPop.classList.toggle("show");
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            this.$router.push("/admin/products");
+            resolve();
+          }, 2000);
+        });
                 } catch ( error ){
                     alert( error )
                 }
@@ -158,5 +171,17 @@ select{
         grid-template-columns: repeat( 2, 1fr );
         gap: 0 1.25rem;
     }
+
+    .success {
+        pointer-events: none;
+  transition: 0.2s;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.show {
+    opacity: 1;
+}
 
 </style>

@@ -36,7 +36,7 @@
       <BrandContainer/>
     </section>
 
-    <section class="my-16 policy">
+    <section class="my-24 policy">
       <Policy/>
     </section>
   </main>
